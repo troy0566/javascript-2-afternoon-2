@@ -191,9 +191,10 @@ var myGroceryList = ['chips', 'pizza', 'hotpockets', 'MtnDew', 'corndogs'];
 */
 
 function removeItem(myGroceryList, item){
-  if (myGroceryList == [] || item == ""){
+  
+  if (!myGroceryList || !item){
       return [];
-    }
+  };
 
     for(i=0;i<=myGroceryList.length;i++){
       if (myGroceryList[i] == item){
@@ -207,12 +208,12 @@ function removeItem(myGroceryList, item){
 }
 
 function addItem(myGroceryList, item){
-  if (myGroceryList != [] || item != ""){
+  if (!myGroceryList ||! item){
+      return [];
+  }
     myGroceryList.push(item);
     return myGroceryList;
-  }else{
-    return [];
-  }
+  
 }
 
 
@@ -223,14 +224,20 @@ function addItem(myGroceryList, item){
   Write a function called maker that creates an array, fills that array with numbers from 1 to 215, then returns the array.
 */
 
-//Code Here
+function maker(){
+  let newarray = [];
+  for(i=1;i < 216; i++){
+    newarray.push(i);
+  }
+  return newarray;
+}
 
 
 
 ////////// PROBLEM 10 //////////
 
 // Do not edit the code below.
-var numbers = [5, '9', 16, 19, '25', '34', 48];
+var oldnumbers = [5, '9', 16, 19, '25', '34', 48];
 // Do not edit the code above.
 
 /*
@@ -238,9 +245,23 @@ var numbers = [5, '9', 16, 19, '25', '34', 48];
   Return a new array after adding ten to each item in numbers. 
   *Verify your answer is correct. --> [15, 19, 26, 29, 35, 44, 58]
 */
-  
-//Code Here
-
+//var numbers = [5, '9', 16, 19, '25', '34', 48];  
+function addTen(){
+  let numbers = [5, '9', 16, 19, '25', '34', 48];
+  let integer = 0;
+  for(i=0;i<=numbers.length - 1;i++){
+    //alert(numbers[i]);
+    if(typeof numbers[i] == "string"){
+      integer = parseInt(numbers[i], 10);
+    }else{
+       integer = numbers[i];
+    }
+    integer = integer + 10;
+    numbers[i] = integer;
+  }
+  //alert(numbers);
+  return numbers;
+}
 
 
 ////////// PROBLEM 11 //////////
@@ -264,7 +285,15 @@ for(var i = 0; i < num2; i++){
   Return the array which is longest.
 */
 
-//Code Here
+function longer(arr1, arr2){
+  arr1Len = arr1.length;
+  arr2Len = arr2.length;
+  if (arr1Len > arr2Len){
+    return arr1;
+  }else{
+    return arr2;
+  }
+}
 
 
 
@@ -276,7 +305,18 @@ for(var i = 0; i < num2; i++){
   Example: var arr1 = [1,2,3,4]; var arr2 = [2,4,5,6]; newArray // [2,4]
 */
 
-//Code Here
+function both(arr1, arr2){
+  newarray = [];
+  for(x=0;x < arr1.length ; x++){
+    for(y=0;y < arr2.length; y++){
+       if (arr1[x] == arr2[y]){
+         newarray.push(arr2[y]);
+       }
+    }
+  }
+  //alert(newarray);
+  return newarray;
+}
 
 
 
@@ -316,7 +356,11 @@ var colt = {
   After that console.log the length of the Array and make sure that it's equal to 4. 
 */
 
-//Code Here
+devMountainEmployees.push(tyler);
+devMountainEmployees.push(cahlan);
+devMountainEmployees.push(ryan);
+devMountainEmployees.push(colt);
+console.log(devMountainEmployees.length);
 
 
 
@@ -325,8 +369,12 @@ var colt = {
   Loop through your devMountainEmployees until you find cahlan, then remove him from the array.
 */
 
-//Code Here
-
+for(let i=0;i < devMountainEmployees.length;i++){
+  if(devMountainEmployees[i].name == "Cahlan"){
+    devMountainEmployees.splice(i, 1);
+  }
+}
+console.log(devMountainEmployees);
 
 
 ////////// PROBLEM 13 //////////
@@ -337,7 +385,7 @@ var colt = {
   Create an empty array called users.
 */
 
-//Code Here
+var users = [];
 
 
 
@@ -355,9 +403,21 @@ var user1 = {
     username: 'infiniteLoop'
 };
 // Do not edit the code above.
+var user2 = {
+  name: 'Quick Draw McDraw',
+  email: 'quickdraw@gmail.com',
+  password: 'iLoveBabalouie',
+  username: 'youfirst'}
 
-//Code Here
+var user3 = {
+    name: 'Augy Doggie',
+    email: 'augydoggie@gmail.com',
+    password: 'iLoveDogieDaddy',
+    username: 'mysonmyson'}
 
+users.push(user1);
+users.push(user2);
+users.push(user3);
 
 
 /*
@@ -370,7 +430,13 @@ var user1 = {
   Once you find the particular index he's located in, delete him from the array.
 */
 
-//Code Here
+for(let i=0;i < users.length;i++){
+  if(users[i].email == "tylermcginnis33@gmail.com"){
+    users.splice(i, 1);
+  }
+}
+
+console.log(users);
 
 
 
